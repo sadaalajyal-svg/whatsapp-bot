@@ -3,9 +3,10 @@ export default {
     return process.env.PORT || 3000;
   },
 
-  get VERIFY_TOKEN() {
-    return process.env.VERIFY_TOKEN;
-  },
+get VERIFY_TOKEN() {
+  console.log("VERIFY_TOKEN =", process.env.VERIFY_TOKEN);
+  return process.env.VERIFY_TOKEN;
+},
 
   get WHATSAPP_TOKEN() {
     return process.env.WHATSAPP_TOKEN;
