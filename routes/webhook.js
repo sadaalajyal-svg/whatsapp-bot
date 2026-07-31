@@ -1,11 +1,9 @@
-
-import express from "express";
-import config from "../config/config.js";
-
-const router = express.Router();
-
-// التحقق من Meta
 router.get("/", (req, res) => {
+
+  console.log("Meta Mode:", req.query["hub.mode"]);
+  console.log("Meta Token:", req.query["hub.verify_token"]);
+  console.log("Server Token:", config.VERIFY_TOKEN);
+
   const mode = req.query["hub.mode"];
   const token = req.query["hub.verify_token"];
   const challenge = req.query["hub.challenge"];
@@ -20,14 +18,3 @@ router.get("/", (req, res) => {
 
   return res.sendStatus(403);
 });
-
-// استقبال الرسائل
-router.post("/", async (req, res) => {
-  console.log(
-    JSON.stringify(req.body, null, 2)
-  );
-
-  res.sendStatus(200);
-});
-
-export default router;
