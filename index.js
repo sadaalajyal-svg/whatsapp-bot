@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import config from "./config/config.js";
+import webhookRouter from "./routes/webhook.js";
+
 dotenv.config();
 
 const app = express();
@@ -9,12 +12,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// الصفحة الرئيسية
 app.get("/", (req, res) => {
-  res.send("صدى الأجيال Bot يعمل بنجاح 🚀");
+  res.send("🚀 بوت صدى الأجيال يعمل بنجاح");
 });
 
-const PORT = process.env.PORT || 3000;
+// ربط Webhook
+app.use("/webhook", webhookRouter);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// تشغيل السيرفر
+app.listen(config.PORT, () => {
+  console.log(`Server running on port ${config.PORT}`);
 });
