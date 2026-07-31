@@ -1,4 +1,3 @@
-
 const config = {
   PORT: process.env.PORT || 3000,
 
@@ -10,5 +9,7 @@ const config = {
 
   OPENAI_API_KEY: process.env.OPENAI_API_KEY,
 };
+
+console.log("VERIFY_TOKEN =", process.env.VERIFY_TOKEN);
 
 export default config;
