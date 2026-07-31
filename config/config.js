@@ -1,15 +1,21 @@
-const config = {
-  PORT: process.env.PORT || 3000,
+export default {
+  get PORT() {
+    return process.env.PORT || 3000;
+  },
 
-  VERIFY_TOKEN: process.env.VERIFY_TOKEN,
+  get VERIFY_TOKEN() {
+    return process.env.VERIFY_TOKEN;
+  },
 
-  WHATSAPP_TOKEN: process.env.WHATSAPP_TOKEN,
+  get WHATSAPP_TOKEN() {
+    return process.env.WHATSAPP_TOKEN;
+  },
 
-  PHONE_NUMBER_ID: process.env.PHONE_NUMBER_ID,
+  get PHONE_NUMBER_ID() {
+    return process.env.PHONE_NUMBER_ID;
+  },
 
-  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+  get OPENAI_API_KEY() {
+    return process.env.OPENAI_API_KEY;
+  }
 };
-
-console.log("VERIFY_TOKEN =", process.env.VERIFY_TOKEN);
-
-export default config;
